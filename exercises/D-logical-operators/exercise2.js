@@ -13,10 +13,19 @@ function isBetween5and10(number){
   return  ( number >= 5 && number <= 10)
 }
 
-function isShortName(name){
-  return true;
-}
- 
+function isShortName(name) {
+    const isfullName = name.split(" ").length;
+    if (isfullName > 1) {
+        return false;
+    } 
+    if (isfullName.length=== 1){
+      return true;
+    } else{
+      return " type your name"
+    }
+    }
+
+
 function startsWithD(name){
   return name[0] == 'D';
 }
