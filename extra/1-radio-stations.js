@@ -52,28 +52,36 @@ function getAvailableStations() {
 }
 
 
-function getStations(){
-  const frequencies = getAvailableStations();
-  let radioStations = [];
-for (let frequency of frequencies){
-  if (isRadioStation(frequency)){
-    radioStations.push(frequency);
-  }
-}
-return radioStations
-}
+// function getStations(){
+//   const frequencies = getAvailableStations();
+//   let radioStations = [];
+// for (let frequency of frequencies){
+//   if (isRadioStation(frequency)){
+//     radioStations.push(frequency);
+//   }
+// }
+// return radioStations
+// }
  
+function getStations() {
+    const frequencies = getAllFrequencies();
+
+    return frequencies.filter((frequency) => {
+        if (isRadioStation(frequency)) return frequency;
+    });
+}
+
 function getAllFrequencies(){ 
   let frequencies =[];
-  for (let i = 87; i<= 100;i++){
+  for (let i = 87; i<= 108;i++){
     frequencies.push(i);
   }
   return frequencies;
 }
-
 function isRadioStation(frequency) {
   return getAvailableStations().includes(frequency);
 }
+console.log(getAllFrequencies());
 
 test("getAllFrequencies() returns all frequencies between 87 and 108", () => {
   expect(getAllFrequencies()).toEqual([
