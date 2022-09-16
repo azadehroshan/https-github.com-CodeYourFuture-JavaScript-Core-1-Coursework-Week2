@@ -51,16 +51,24 @@ function getAvailableStations() {
   return getAvailableStations.stations;
 }
 
+
 function getStations(){
-  return getAvailableStations();
+  const frequencies = getAvailableStations();
+  let radioStations = [];
+for (let frequency of frequencies){
+  if (isRadioStation(frequency)){
+    radioStations.push(frequency);
+  }
+}
+return radioStations
 }
  
-
 function getAllFrequencies(){ 
-  return [
-    87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104,
-    105, 106, 107, 108,
-  ];
+  let frequencies =[];
+  for (let i = 87; i<= 100;i++){
+    frequencies.push(i);
+  }
+  return frequencies;
 }
 
 function isRadioStation(frequency) {

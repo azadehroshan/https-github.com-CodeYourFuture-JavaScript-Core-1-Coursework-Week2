@@ -7,13 +7,13 @@ Tip: use logical operators
 */
 
 function validate(num) {
-  if( Number.isInteger( num ) && ( num % 4 == 2 ) && num <= 100 ){
+  if( Number.isInteger( num ) && ( num % 2 == 0 ) && num <= 100 ){
     return true;
   }
   return false;
 }
 
-/*
+/*(
 Write a function that:
 - takes a number as input
 - return a string formatted as percentages (e.g. 10 => "10%")
@@ -22,9 +22,9 @@ Write a function that:
 */
 
 function formatPercentage(num) {
-  
-    return num > 100 ? "100%"  : num.toFixed(2)+ "%"; 
-}
+    let numStr = `${String(num)}%`;
+    return numStr;
+  }
 /*
 Write a function that:
 - takes an array of strings as input
