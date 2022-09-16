@@ -6,13 +6,21 @@ Complete the function to check if the variable `num` satisfies the following req
 Tip: use logical operators
 */
 
-function validate(num) {
-  if( Number.isInteger( num ) && ( num % 2 == 0 ) && num <= 100 ){
-    return true;
-  }
-  return false;
-}
+// function validate(num) {
+//   if( Number.isInteger( num ) && ( num % 2 == 0 ) && num <= 100 ){
+//     return true;
+//   }
+//   return false;
+// }
 
+
+function validate(num) {
+    if (typeof num === "number" && num % 2 === 0 && num <= 100) {
+        return true;
+    } else {
+        return false;
+    }
+}
 /*(
 Write a function that:
 - takes a number as input
@@ -20,11 +28,23 @@ Write a function that:
 - the number must be rounded to 2 decimal places
 - numbers greater 100 must be replaced with 100
 */
-
 function formatPercentage(num) {
-    let numStr = `${String(num)}%`;
-    return numStr;
-  }
+    if (num > 100) {
+        return "100%";
+    }
+    if (Number.isInteger(num)) {
+        return `${num}%`;
+    }
+    if (!Number.isInteger(num)) {
+        return `${String(num.toFixed(2).replace(/(\.0+|0+)$/, ""))}%`;
+    }
+}
+
+
+
+
+
+
 /*
 Write a function that:
 - takes an array of strings as input
@@ -32,7 +52,12 @@ Write a function that:
 - removes any forward slashes (/) in each string
 - makes all strings all lowercase
 */
-function tidyUpStrings(arrayOfStrings) {}
+function tidyUpStrings(arrayOfStrings)  {
+    const arr = arrayOfStrings.map((element) =>
+        element.replace(/\//g, "").toLowerCase().trim()
+    );
+    return arr;
+}
 
 /* ======= TESTS - DO NOT MODIFY ===== */
 
